@@ -189,6 +189,18 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Css\css\bootstrap-grid.css" />
+    <Content Include="Content\Css\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Css\css\bootstrap-reboot.css" />
+    <Content Include="Content\Css\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Css\css\bootstrap.css" />
+    <Content Include="Content\Css\css\bootstrap.min.css" />
+    <Content Include="Content\Css\js\bootstrap.bundle.js" />
+    <Content Include="Content\Css\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\Css\js\bootstrap.js" />
+    <Content Include="Content\Css\js\bootstrap.min.js" />
+    <Content Include="Content\Css\js\jquery.min.js" />
+    <Content Include="Content\Images\Logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -201,6 +213,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Css\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Css\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Css\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Css\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Css\css\bootstrap.css.map" />
+    <Content Include="Content\Css\css\bootstrap.min.css.map" />
+    <Content Include="Content\Css\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\Css\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\Css\js\bootstrap.js.map" />
+    <Content Include="Content\Css\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

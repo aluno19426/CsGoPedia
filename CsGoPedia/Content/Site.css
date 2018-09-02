@@ -1,24 +1,27 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body{
+    height: 100vh;
+    width: 100%;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+#logo {
+    height: 75px;
+    width: 75px;
 }
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #343a40;
+    text-align: right;
+  }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#MiddlePage {
+    background-image: url("../../Content/Images/Fundo.png");
+    height: 100vh;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    border-color:white;
 }
