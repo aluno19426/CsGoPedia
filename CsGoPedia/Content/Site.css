@@ -1,27 +1,168 @@
 ﻿body{
+/*     height: 100vh;
+    width: 100%; */
+    margin: 0 auto;
+    background-image: url("../../Content/Images/teste1.jpg");
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    border-color:white;
+}
+/* 
+#Nav {
     height: 100vh;
-    width: 100%;
+    background-image: url("../../Content/Images/Fundo.png");
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    border-color:white;
+} */
+
+#UlColor li a {
+    color: white;
 }
 
 #logo {
     height: 75px;
     width: 75px;
 }
-.footer {
+
+#footer {
     position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem;
-    background-color: #343a40;
+     background-color: burlywood; 
     text-align: right;
   }
 
 #MiddlePage {
-    background-image: url("../../Content/Images/Fundo.png");
-    height: 100vh;
-    background-position:center;
+ /*    height: 100vh; */
+    
+/*     background-image: url("../../Content/Images/teste1.jpg"); */
+/*     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
-    border-color:white;
+    border-color:white; */
+} 
+
+#navbarSupportedContent li {
+
 }
+.Title {
+    text-align: center;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#DivVideos {
+    display: flex;
+    margin: 0 auto;
+}
+#DivVideos iframe {
+    border: 0;
+}
+.MePhoto {
+    margin-left: auto;margin-right: auto;display: flex;
+    margin-top: 2%;
+}
+.Players {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#AllPlayersclass .row{
+    margin-right: -130px;
+    margin-left: 50px;
+}
+.ImgContainer {
+    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+}
+.PlayerImg {
+    height: 100%;
+    width: 100%;
+}
+.Name {
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-align: center;
+}
+
+.zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(0.9); 
+} 
+
+.col-2.Players.zoom {
+    cursor: pointer;
+}
+
+.col-2.Players.zoom div > h6 {
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-align: center;
+}
+
+.card-body.row > h6{
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+.card-header.bg-dark.text-light {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 768px){
+    #DivVideos > div iframe{
+        margin-left: 5%;
+    }
+}
+
+/* @media only screen and (max-width: 992px){
+    #DivVideos > div > iframe{
+        height: 100%;
+        width: 100%;
+    }
+} */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    #DivVideos > div > iframe  {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #DivMedia > .MePhoto{
+        height: 64px;
+        width: 64px;
+    }
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .card-footer > img{
+        margin-left: 35%;
+    }
+}
+
+
+/********/

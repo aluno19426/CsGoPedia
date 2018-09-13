@@ -5,49 +5,158 @@
     <meta charset="utf-8" />
     <title>CSGO - GamerPedia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Content/Site.css" />
 </head>
 
 <body>
-    <div id="MainDiv">
-        <div id="NavBar">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#"><img id="logo" src="Content/Images/Logo.png" ; style="float: left;" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navcol-1" aria-expanded="false">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="sr-only"></span>
-                </button>
+    <div id="Nav">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#6351ce;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container">
+                <a class="navbar-brand" href="#"><img id="logo" src="Content/Images/Logo.png" style="text-align: center"
+                    /></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item active" role="presentation">
-                            <a class="nav-link" href="#" style="font-weight: bold;">Teams</a>
+                    <ul id="UlColor" class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a id="Clean" class="nav-link" href="#">CSGO - GamerPedia<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="font-weight: bold;">Players</a>
+                            <a id="RedirectTeams" class="nav-link" href="#">Teams<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="RedirectPlayers" class="nav-link" href="#">Players</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                More
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">About</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">The Game</a>
+                            </div>
                         </li>
                     </ul>
-                    <form class="form-inline mr-auto my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="form-group">
+                            <input id="procura" class="form-control search-field" type="search" name="search" id="search-field" style="margin:15px;">
+                            <label for="search-field">
+                                <i class="fa fa-search"></i>
+                            </label>
+                        </div>
                     </form>
                 </div>
-            </nav>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="MiddlePage">
+        <h4 id="TitleMiddlePage" style="text-align: center; color: white;">Enjoy some clips of me</h4>
+        <div id="DivTitle" class="container">
+            <div id="DivVideos" class="row">
+            </div>
+            <div id="Media" class="container" style="text-align: center;">
+            </div>
         </div>
-
-        <div id="MiddlePage">
-
-        </div>
-
-        <div id="footer">
-            <div class="footer" style="font-weight: bold; color: rgba(255,255,255,.75);">
-                IPT 2018 - Tecnologias de Internet
-                II
+        <div id="ContainerPlayers" class="container" style="margin-top: 1%;margin-bottom: 3%;">
+            <div id="AllPlayers" class="row">
             </div>
         </div>
     </div>
+    <!--     <div id="footer">
+        <div id="DivFooter" class="footer" style="font-weight: bold; color: rgba(255,255,255,.75); text-align: center">
+        </div>
+    </div>
+ -->
+    <!-- Footer -->
+    <footer class="page-footer font-small unique-color-dark">
+
+        <div id="footer" style="background-color: #6351ce;">
+            <div class="container">
+
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Get connected with us on social networks!</h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fa fa-facebook white-text mr-4"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fa fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class="gplus-ic">
+                            <i class="fa fa-google-plus white-text mr-4"> </i>
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic">
+                            <i class="fa fa-linkedin white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fa fa-instagram white-text"> </i>
+                        </a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+              
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+    </footer>
+    <!-- Footer -->
     <script src="Content/Css/js/jquery.min.js"></script>
     <script src="Content/Css/js/bootstrap.min.js"></script>
+    <script src="JS/Main.js"></script>
+    <script src="JS/GetData.js"></script>
 </body>
 
 </html>

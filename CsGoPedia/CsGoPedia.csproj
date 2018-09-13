@@ -205,7 +205,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Index.html" />
+    <Content Include="Index.html" />  
     <Content Include="JS\GetData.js" />
     <Content Include="JS\Main.js" />
     <Content Include="Scripts\bootstrap.js" />

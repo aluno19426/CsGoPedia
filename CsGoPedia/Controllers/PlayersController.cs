@@ -81,13 +81,12 @@ namespace GamerPedia.Controllers
                     TotalWinnings = p.TotalWinnings,
                     VideoHighlight = p.VideoHighlight
                 })
-                .OrderBy(p=>p.Name)
+                .OrderBy(p=>p.Id)
                 .ToList();
 
             if(players.Count() == 0) {
                 return NotFound();
             }
-
             return Ok(players);
         }
     }
