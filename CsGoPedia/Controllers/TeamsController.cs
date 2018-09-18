@@ -20,7 +20,9 @@ namespace GamerPedia.Controllers {
                 t => new GetAllTeams {
                     Id = t.Id,
                     Name = t.Name,
-                    Logo = t.Logo
+                    Logo = t.Logo,
+                    WorldRanking = t.WorldRanking,
+                    RegionPhoto = t.RegionPhoto
                 })
                 .OrderBy(t => t.Id)
                 .ToList();

@@ -4,9 +4,10 @@
     margin: 0 auto;
     background-image: url("../../Content/Images/teste1.jpg");
     background-position:center;
-    background-size:cover;
+    background-size:inherit;
     background-repeat:no-repeat;
     border-color:white;
+    background-attachment: fixed;
 }
 /* 
 #Nav {
@@ -59,8 +60,8 @@
 }
 
 #DivVideos {
-    display: flex;
-    margin: 0 auto;
+    /* display: flex; */
+    /* margin: 0 auto; */
 }
 #DivVideos iframe {
     border: 0;
@@ -74,20 +75,17 @@
     width: 100%;
     object-fit: cover;
 }
-
+/* 
 #AllPlayersclass .row{
     margin-right: -130px;
     margin-left: 50px;
-}
+} */
 .ImgContainer {
     margin: 0 auto;
     height: 100px;
     width: 100px;
 }
-.PlayerImg {
-    height: 100%;
-    width: 100%;
-}
+  
 .Name {
     font-style: italic;
     font-weight: bold;
@@ -98,13 +96,13 @@
 
 .zoom {
     transition: transform .2s;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .zoom:hover {
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(0.9); 
+    transform: scale(1.2); 
 } 
 
 .col-2.Players.zoom {
@@ -129,25 +127,29 @@
 }
 
 @media only screen and (max-width: 768px){
-    #DivVideos > div iframe{
-        margin-left: 5%;
+    #DivVideos {
+        /* margin-left: 5%; */
+        text-align: center;
     }
 }
 
-/* @media only screen and (max-width: 992px){
+@media only screen and (max-width: 320px){
+    #DivVideos {
+        /* margin-left: 5%; */
+        
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width:768px){
     #DivVideos > div > iframe{
         height: 100%;
         width: 100%;
     }
-} */
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
-    #DivVideos > div > iframe  {
-        height: 100%;
-        width: 100%;
+    #DivVideos > div {
+        margin-bottom:5px;
     }
-}
+} 
 
 @media only screen and (max-width: 768px) {
     #DivMedia > .MePhoto{
@@ -155,8 +157,12 @@
         width: 64px;
     }
 }
-
-
+/** bandeira do jogador por cada eequipa not working*/
+@media only screen and (max-width: 1200px) {
+    #SinglePlayer > MainCardSinglePlayer > .card.border-dark > .card-footer > img.card-img-top{
+        margin-left: 5000000%;
+    }
+}
 
 @media only screen and (max-width: 992px) {
     .card-footer > img{
@@ -164,5 +170,71 @@
     }
 }
 
+@media only screen and (max-width: 576px) {
+    div.card-body.row{
+       display: block;
+    }
+}
 
+@media only screen and (max-width: 768px) {
+    .card-footer > img{
+        margin-left: 35%;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    #AllPlayers {
+        margin-bottom: 30%;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .card-body.row  h6{
+        font-size: 12px;
+    }
+    .card-body.row  h4{
+        font-size: 16px;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    .card-body.row  h6{
+        font-size: 20px;
+    }
+    .card-body.row  h4{
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #AllTeams {
+        margin-bottom: 15%;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    #AllTeams {
+        margin-bottom: 30%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #SinglePlayer {
+        margin-bottom: 30%;
+    }
+}
+ 
+@media only screen and (max-width: 330px) {
+    #SinglePlayer {
+        margin-bottom: 45%;
+    }
+}
+
+
+
+
+
+/* 
+margin-bottom: 35%; */
 /********/

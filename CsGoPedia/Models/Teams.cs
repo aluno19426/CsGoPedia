@@ -33,6 +33,9 @@ namespace GamerPedia.Models {
 
         public string Logo { get; set; }
 
+        public string WorldRanking { get; set; }
+
+
         //Colletion of list of objets from construtor from class teams
         public virtual ICollection<Players> ListPlayers { get; set; }
 

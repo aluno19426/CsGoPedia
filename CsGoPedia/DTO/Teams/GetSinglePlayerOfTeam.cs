@@ -33,8 +33,8 @@ namespace GamerPedia.DTO.Teams {
         public string TotalWinnings { get; set; }
 
         //Colletion of list of objets from construtor from class players
-        public virtual ICollection<GetStatistics> ListStatistics { get; set; }
-        public virtual ICollection<GetAchievements> ListAchievements { get; set; }
+        public virtual ICollection<GetStatistics> Statistics { get; set; }
+        public virtual ICollection<GetAchievements> Achievements { get; set; }
 
         public class GetStatistics {
             public int Id { get; set; }

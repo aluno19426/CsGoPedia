@@ -21,16 +21,16 @@
             var ListTeam = new List<Teams> {
 
                 //team MouseSports
-                new Teams {Id = 1, Name = "Mousesports", Localization="Germany",  LocalizationPhoto="https://liquipedia.net/commons/images/8/8f/De.png", Region="Europe", RegionPhoto="https://liquipedia.net/commons/images/c/cc/Eu.png", CoachPhoto="https://liquipedia.net/commons/images/thumb/7/7a/Lmbt_at_StarLadder_i-League_StarSeries_S4.jpg/600px-Lmbt_at_StarLadder_i-League_StarSeries_S4.jpg", Coach="Sergey Bezhanov", TotalEarnings="1,829,391$", Logo="https://liquipedia.net/commons/images/thumb/7/7a/Mouz_logo.png/800px-Mouz_logo.png"},
+                new Teams {Id = 1, Name = "Mousesports", WorldRanking="4º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/300/400.jpeg?v=4", Coach="Sergey Bezhanov", TotalEarnings="1,829,391$", Logo="https://static.hltv.org/images/team/logo/4494"},
 
                 //team Faze Clan
-                new Teams {Id = 2, Name = "FaZe Clan", Localization="United States",  LocalizationPhoto="https://liquipedia.net/commons/images/2/2f/Us.png", Region="Europe", RegionPhoto="https://liquipedia.net/commons/images/c/cc/Eu.png", CoachPhoto="https://liquipedia.net/commons/images/thumb/0/04/RobbaN_at_StarLadder_i-League_StarSeries_S4.jpg/600px-RobbaN_at_StarLadder_i-League_StarSeries_S4.jpg", Coach="Robert Dahlström", TotalEarnings="2,507,347$", Logo="https://liquipedia.net/commons/images/thumb/a/a4/FaZe_Clan.png/600px-FaZe_Clan.png"},
+                new Teams {Id = 2, Name = "FaZe Clan",WorldRanking="5º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/2/400.jpeg?v=1", Coach="Robert Dahlström", TotalEarnings="2,507,347$", Logo="https://static.hltv.org/images/team/logo/6667"},
 
                 //team Renegades
-                new Teams {Id = 3, Name = "Renegades", Localization="Australia",  LocalizationPhoto="https://liquipedia.net/commons/images/e/e6/Au.png", Region="North America", RegionPhoto="https://liquipedia.net/commons/images/5/57/North_America.png", CoachPhoto="https://liquipedia.net/commons/images/thumb/0/07/Ryu_at_DH_Montreal_2017.jpg/600px-Ryu_at_DH_Montreal_2017.jpg", Coach="Steve Rattacasa", TotalEarnings="547,198$", Logo="https://liquipedia.net/commons/images/thumb/8/8e/Renegades.svg/600px-Renegades.svg.png"},
+                new Teams {Id = 3, Name = "Renegades", WorldRanking="19º", Region="North America", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/US.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/9052/400.jpeg?v=1", Coach="Steve Rattacasa", TotalEarnings="547,198$", Logo="https://static.hltv.org/images/team/logo/6211"},
 
                 //team North
-                new Teams {Id = 4, Name = "North", Localization="Denmark",  LocalizationPhoto="https://liquipedia.net/commons/images/0/06/Dk.png", Region="Europe", RegionPhoto="https://liquipedia.net/commons/images/c/cc/Eu.png", CoachPhoto="https://liquipedia.net/commons/images/thumb/7/78/Ave_at_StarLadder_i-League_StarSeries_S5.jpg/600px-Ave_at_StarLadder_i-League_StarSeries_S5.jpg", Coach="Alexander Holdt", TotalEarnings="670,250$", Logo="https://liquipedia.net/commons/images/e/eb/North.png"},
+                new Teams {Id = 4, Name = "North", WorldRanking="6º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/24/400.jpeg?v=1", Coach="Alexander Holdt", TotalEarnings="670,250$", Logo="https://static.hltv.org/images/team/logo/7533"},
             };
 
             ListTeam.ForEach(t => context.Teams.AddOrUpdate(tt => tt.Name, t));

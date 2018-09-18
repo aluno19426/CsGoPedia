@@ -13,5 +13,9 @@ namespace GamerPedia.DTO.Teams {
 
         public string Logo { get; set; }
 
+        public string WorldRanking { get; set; }
+
+        public string RegionPhoto { get; set; }
+
     }
 }
