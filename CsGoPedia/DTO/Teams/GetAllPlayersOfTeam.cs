@@ -15,7 +15,7 @@ namespace GamerPedia.DTO.Teams {
         public string BirthDate { get; set; }
 
         public string ImgCountry { get; set; }
-        public string Coutry { get; set; }
+        public string Country { get; set; }
 
         public string Team { get; set; }
 

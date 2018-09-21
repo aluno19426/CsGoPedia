@@ -52,10 +52,9 @@ function GetTeam(TeamId){
 }
 
 
-function GetPlayers(){
-
-    var Players = "api/players";
-    return fetch(Players, { headers: { Accept: 'application/json' } })
+function GetPlayers(type="", str=""){
+    var Players = "api/players/?type="+type+"&str="+str;
+    var ps =fetch(Players, { headers: { Accept: 'application/json' } })
     .then(function (resposta) {
         if (resposta.status === 200) {
             return resposta.json();
@@ -63,6 +62,7 @@ function GetPlayers(){
             return Promise.reject(new Error("Error to get Players"));
         }
     });
+    return ps;
 }
 
 function GetPlayer(PlayerId){

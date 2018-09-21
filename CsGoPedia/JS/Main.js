@@ -1,34 +1,17 @@
 ﻿document.addEventListener("DOMContentLoaded", function main(e) {
-
     inic();
 });
 
 function inic() {
     MainPage();
-    
 }
-/*
-para o filtro dos jogadores
-function Procura() {
-    var input = document.querySelector("#search-field");
-    input.addEventListener("input", async function () {
-        var filtro = input.value;
-        divPrincipal.innerHTML = "";
-        if (filtro.length === 0) {
-            load();
-        } else {
-            const Player = await GetPlayers(filtro);
-            ShowPlayers(Players);
-        }
-    });
-} */
 
-// Página inicial 
+// Página inicial
 function MainPage() {
-
     // var AllPlayers = document.getElementById("AllPlayers").classList.add("hidden");
 
     var DivVideos = document.getElementById("DivVideos");
+    DivVideos.setAttribute("style","margin-top:15%");
     var DivMedia = document.getElementById("Media");
 
     var DivVideo1 = document.createElement("div");
@@ -51,58 +34,32 @@ function MainPage() {
     var Video5 = document.createElement("iframe");
     var Video6 = document.createElement("iframe");
 
-    /*     var SteamImg = document.createElement("img");
-        var Steam = document.createElement("a");
-        var InstagramImg = document.createElement("img");
-        var Instagram = document.createElement("a"); */
-    var Me = document.createElement("img");
+    // var Me = document.createElement("img");
 
     Video1.src = "https://www.youtube.com/embed/gbqTR0aSh2M?rel=0";
     Video1.setAttribute("allowFullScreen", "");
     DivVideo1.appendChild(Video1);
-    //Video1.className = "col-md-4";
-    //Video1.setAttribute("width","250px");
     Video2.src = "https://www.youtube.com/embed/bXewHrp3BeQ?rel=0";
     Video2.setAttribute('allowFullScreen', '');
     DivVideo2.appendChild(Video2);
-    //Video2.className = "col-md-4";
-    //Video2.setAttribute("width","250px");
     Video3.src = "https://www.youtube.com/embed/swPCjsxpoXw?rel=0";
     Video3.setAttribute('allowFullScreen', '');
     DivVideo3.appendChild(Video3);
-    //Video3.className = "col-md-4";
-    //Video3.setAttribute("width","250px");
     Video4.src = "https://www.youtube.com/embed/iKmOXwRhTrI?rel=0";
     Video4.setAttribute('allowFullScreen', '');
-    //Video4.setAttribute("style", "margin-top:5%");
     DivVideo4.appendChild(Video4);
-    //Video4.className = "col-md-4";
-    //Video4.setAttribute("width","250px");~
 
     Video5.src = "https://www.youtube.com/embed/0sMlZL6MVP4";
     Video5.setAttribute('allowFullScreen', '');
-    //Video5.setAttribute("style", "margin-top:5%");
     DivVideo5.appendChild(Video5);
-    //Video5.className = "col-md-4";
 
     Video6.src = "https://www.youtube.com/embed/vVIhQCN_Mm4";
     Video6.setAttribute('allowFullScreen', '');
-    //Video6.setAttribute("style", "margin-top:5%");
-    //Video6.className = "col-md-4";
     DivVideo6.appendChild(Video6);
 
-    Me.src = "./Content/Images/Me.jpg";
-    Me.className = "MePhoto";
+    // Me.src = "./Content/Images/Me.jpg";
+    // Me.className = "MePhoto";
 
-    var ButtonTeams = document.createElement("button");
-    ButtonTeams.className = "btn btn-primary";
-    ButtonTeams.setAttribute("style","font-size:36px;background-color:#6351ce;")
-    ButtonTeams.textContent= "Teams";
-
-    var ButtonPlayers = document.createElement("button");
-    ButtonPlayers.className = "btn btn-primary";
-    ButtonPlayers.setAttribute("style","font-size:36px;float:right;background-color:#6351ce;")
-    ButtonPlayers.textContent= "Players";
 
     DivVideos.appendChild(DivVideo1);
     DivVideos.appendChild(DivVideo2);
@@ -110,21 +67,11 @@ function MainPage() {
     DivVideos.appendChild(DivVideo4);
     DivVideos.appendChild(DivVideo5);
     DivVideos.appendChild(DivVideo6);
-    DivMedia.appendChild(Me);
-    DivMedia.appendChild(ButtonTeams);
-    DivMedia.appendChild(ButtonPlayers);
 
     var RedirectPlayers = document.getElementById("RedirectPlayers");
     var RedirectTeams = document.getElementById("RedirectTeams");
     var TitleMiddlePage = document.getElementById("TitleMiddlePage");
-
-    ButtonTeams.addEventListener("click",function(e){
-        DivVideos.classList.add("hidden");
-        TitleMiddlePage.classList.add("hidden");
-        DivMedia.classList.add("hidden");
-        
-        EcranTeams();
-    });
+    var SubmitSearch = document.getElementById("SubmitSearch");
 
     RedirectTeams.addEventListener("click", function (e) {
         DivVideos.classList.add("hidden");
@@ -154,38 +101,33 @@ function MainPage() {
         SinglePlayer.innerHTML = "";
         EcranPlayers();
     });
-    
-    // RedirectPlayers.addEventListener("click", function (e) {
-    //     Video1.classList.add("hidden");
-    //     Video2.classList.add("hidden");
-    //     Video3.classList.add("hidden");
-    //     Video4.classList.add("hidden");
-    //     Video5.classList.add("hidden");
-    //     Video6.classList.add("hidden");
-    //     DivVideos.classList.add("hidden");
-    //     DivMedia.classList.add("hidden");
-    //     TitleMiddlePage.classList.add("hidden");
-    //     Video1.innerHTML = "";
-    //     Video2.innerHTML = "";
-    //     Video3.innerHTML = "";
-    //     Video4.innerHTML = "";
-    //     Video5.innerHTML = "";
-    //     Video6.innerHTML = "";
-    //     DivVideos.innerHTML = "";
-    //     DivMedia.innerHTML = "";
-    //     TitleMiddlePage.innerHTML = "";
-    //     /*      var AllPlayers = document.getElementById("AllPlayers");
-    //             AllPlayers.classList.remove("hidden"); */
-    //     EcranPlayers();
-    //});
+
+    SubmitSearch.addEventListener("click", function(e){
+        e.preventDefault();
+        //Ecran dependendo do input da procura
+        var type = document.getElementById("searchFilter").value;
+        var str = document.getElementById("searchInput").value;
+        DivVideos.classList.add("hidden");
+        TitleMiddlePage.classList.add("hidden");
+        DivMedia.classList.add("hidden");
+        AllPlayers.classList.add("hidden");
+        AllTeams.classList.add("hidden");
+        SinglePlayer.classList.add("hidden");
+
+        // RedirectTeams.classList.add("hidden");
+        AllPlayers.innerHTML = "";
+        SinglePlayer.innerHTML = "";
+        // debugger;
+        EcranPlayers(type, str);
+    });
 
     var Clean = document.getElementById("Clean").addEventListener("click",function(e){
-        
+
         /*esconde os divs*/
         DivVideos.classList.remove("hidden");
         DivMedia.classList.remove("hidden");
         TitleMiddlePage.classList.remove("hidden");
-        
+
 
         AllTeams.classList.add("hidden");
         AllTeams.innerHTML = "";
@@ -196,17 +138,18 @@ function MainPage() {
 }
 
 
-//Mostra todos os jogadores 
+//Mostra todos os jogadores
 function ShowPlayers(Players) {
 
 
-/*     para o filtro do jogador
-if (Players == null || Players.length === 0) {
+    /*     para o filtro do jogador
+    if (Players == null || Players.length === 0) {
         const h1 = document.createElement("h1");
         h1.textContent = "No champions were found.";
 
         mainDiv.appendChild(h1);
     } */
+
 
     var AllPlayers = document.getElementById("AllPlayers");
     AllPlayers.classList.remove("hidden");
@@ -246,7 +189,7 @@ if (Players == null || Players.length === 0) {
 
         var Texto = document.createElement("p");
         Texto.className = "card-text";
-        //Texto.textContent = "Country" + Player.Coutry;
+        //Texto.textContent = "Country" + Player.Country;
 
 
         var CountryImg = document.createElement("img");
@@ -293,13 +236,13 @@ if (Players == null || Players.length === 0) {
 
     }
 }
-//Mostra todos os jogadores de uma equipa
+
 function ShowTeamPlayers(Players) {
 
 
     var AllPlayers= document.getElementById("AllPlayers");
     AllPlayers.classList.add("hidden");
-   
+
     var SinglePlayer = document.getElementById("SinglePlayer");
     SinglePlayer.classList.remove("hidden");
 
@@ -385,7 +328,6 @@ function ShowTeamPlayers(Players) {
                         alert("Lamentamos, mas ocorreu um erro...");
                     });
                 });
-
          */
         Button.addEventListener("click", function (e) {
             var PlayerId = e.target.getAttribute("id", Players.Id);
@@ -470,6 +412,9 @@ function ShowTeams(Teams) {
         Button.addEventListener("click", function (e) {
             var TeamId = e.target.getAttribute("id", Team.Id);
             AllTeams.classList.add("hidden");
+
+            AllPlayers.innerHTML = "";
+            SinglePlayer.innerHTML = "";
             EcranTeamPlayers(TeamId);
         });
 
@@ -487,31 +432,299 @@ function ShowTeams(Teams) {
 
 function ShowPlayer(PlayerId) {
 
-    var SinglePlayer = document.getElementById("SinglePlayer");
+    var PlayersDetails = document.getElementById("PlayersDetails");
+    PlayersDetails.style.marginTop = "1%";
 
-    var teste = document.getElementById("teste");
+    var DivCol1 = document.createElement("div");
+    DivCol1.className = "col-md-6";
 
-    var photo = document.createElement("img");
-    photo.src = PlayerId.Photo;
-    var Name = document.createElement("p");
-    Name.textContent = PlayerId.Name;
-    Name.style.color = "white";
-    var DivName = document.createElement("div");
+    var DivCol2 = document.createElement("div");
+    DivCol2.className = "col-md-6";
+    DivCol2.setAttribute("style","background-color:#32383e");
 
-    DivName.appendChild(Name);
+    var DivCol3 = document.createElement("div");
+    DivCol3.className = "col-md-4";
 
-    // SinglePlayer.appendChild(DivName);
-    // // SinglePlayer.appendChild(p);
+    var DivPhoto = document.createElement("div");
 
-    teste.appendChild(photo);
+    var PlayerPhoto = document.createElement("img");
+    PlayerPhoto.src = PlayerId.Photo;
+    PlayerPhoto.setAttribute("style","height:100%; width:100%");
+    DivPhoto.appendChild(PlayerPhoto);
+
+    var DivTotalWinnings = document.createElement("div");
+    DivTotalWinnings.setAttribute("style","background-color:black; text-align:center;");
+
+    var TotalWinnings = document.createElement("h6");
+    TotalWinnings.textContent = "Total:" + " " + PlayerId.TotalWinnings;
+    TotalWinnings.setAttribute("style","color:white");
+
+    var Nickname = document.createElement("h6");
+    Nickname.textContent = "Nickname:" + " " + PlayerId.Nickname;
+    Nickname.setAttribute("style","background-color:#343a40 !important;");
+
+    var Name = document.createElement("h6");
+    Name.textContent = "Name:" + " " + PlayerId.Name;
+    Name.setAttribute("style","background-color:#343a40 !important;");
+
+    var divCountryStuff = document.createElement("div");
+
+    
+    var Country = document.createElement("h6");
+    Country.textContent = "Name:" + " " + PlayerId.Country;
+    Country.setAttribute("style","background-color:#343a40 !important;");
+
+    var ImgCountry = document.createElement("img");
+    ImgCountry.src =PlayerId.ImgCountry;
+    ImgCountry.setAttribute("style","float:right;");
+
+    var VideoHighlight = document.createElement("iframe");
+    VideoHighlight.src = PlayerId.VideoHighlight;~
+    VideoHighlight.setAttribute("style","height:50%; width:100%;")
+
+    console.log(VideoHighlight);
+
+    divCountryStuff.appendChild(ImgCountry);
+    divCountryStuff.appendChild(Country);
+    
+    var Role = document.createElement("h6");
+    Role.textContent = "Name:" + " " + PlayerId.Role;
+    Role.setAttribute("style","background-color:#343a40 !important;");
+
+    var BirthDate = document.createElement("h6");
+    BirthDate.textContent = "Name:" + " " + PlayerId.BirthDate;
+    BirthDate.setAttribute("style","background-color:#343a40 !important;");
+
+    var InstaPlayer = document.createElement("a");
+    InstaPlayer.setAttribute("style","background-color:#343a40 !important;")
+    InstaPlayer.href = PlayerId.Instagram;
+    InstaPlayer.setAttribute("target","_blank");
+
+    var InstagramIcon = document.createElement("img");
+    InstagramIcon.src = "./Content/Images/InstaIcon.png";
+    InstagramIcon.setAttribute("style","height:25px;width:25px;float:right;");
+
+    InstaPlayer.appendChild(InstagramIcon);
+
+
+    DivTotalWinnings.appendChild(TotalWinnings);
+
+    // DivPhoto.appendChild(DivTotalWinnings);
+
+    DivCol1.appendChild(DivPhoto);
+    DivCol1.appendChild(DivTotalWinnings);
+
+    DivCol2.appendChild(Nickname);
+    DivCol2.appendChild(Name);
+    DivCol2.appendChild(divCountryStuff);
+    DivCol2.appendChild(Role);
+    DivCol2.appendChild(BirthDate);
+    DivCol2.appendChild(VideoHighlight);
+    DivCol2.appendChild(InstaPlayer);
+
+
+    // DivCol3.appendChild(InstaPlayer);
+
+    // var DivContainerAchivements = document.createElement("div");
+    // DivContainerAchivements.className = "container";
+
+    PlayersDetails.appendChild(DivCol1);
+    PlayersDetails.appendChild(DivCol2);
+    // PlayersDetails.appendChild(DivCol3);
+
+
+    var div = document.createElement("div");
+    div.className= "DivAChiStats row";
+    div.setAttribute("style","margin-top: 2%;margin-left: 1.4%;");
+
+    var AchievementsTitle = document.createElement("h3");
+    AchievementsTitle.className = "AchievementsTitle";
+    AchievementsTitle.textContent = "Player Achivements";
+    // AchievementsTitle.setAttribute("style","background-color:#32383e;text-align:center;color:white;");
+    div.appendChild(AchievementsTitle);
+
+    var tablehead = document.createElement("thead");
+
+    var tr1 = document.createElement("tr");
+
+    var table = document.createElement("table");
+    table.className = "table table-dark";
+    table.setAttribute("style","border-collapse: collapse; ")
+
+    var thName = document.createElement("th");
+    // thName.className = "col";
+    thName.textContent = "Tournament";
+
+    var thPlacement = document.createElement("th");
+    // thPlacement.className = "col";
+    thPlacement.textContent = "Placement";
+
+    tr1.appendChild(thName);
+    tr1.appendChild(thPlacement);
+
+    tablehead.appendChild(tr1);
+    table.appendChild(tablehead);
+
+    for (var i = 0; i < PlayerId.Achievements.length; i++){
+
+        var pAchi = PlayerId.Achievements[i];
+
+        var tBody = document.createElement("tbody");
+
+        var tr2 = document.createElement("tr");
+
+        var tdName = document.createElement("td");
+        tdName.textContent = pAchi.Name;
+
+        tr2.appendChild(tdName);
+
+        var tdPlacement = document.createElement("td");
+        tdPlacement.textContent =pAchi.Placement;
+
+        tr2.appendChild(tdPlacement);
+
+        tBody.appendChild(tr2);
+        tBody.appendChild(tdName);
+        tBody.appendChild(tdPlacement);
+
+        // table.appendChild(tablehead);
+        table.appendChild(tBody);
+
+        div.appendChild(table);
+
+        PlayersDetails.appendChild(div);
+    }
+
+    // PlayersDetails.appendChild(DivCol1);
+    // PlayersDetails.appendChild(DivCol2);
+    // PlayersDetails.appendChild(DivCol3);
+
+
+    // var divS = document.createElement("div");
+    // divS.setAttribute("style","margin-top: 2%;margin-left: 1.4%;");
+
+    var StatiTitle = document.createElement("h3");
+    StatiTitle.textContent = "Player Statistics";
+    StatiTitle.className = "StatiTitle";
+    // StatiTitle.setAttribute("style","background-color:#32383e;text-align:center;color:white;");
+    div.appendChild(StatiTitle);
+
+    var tableheads = document.createElement("thead");
+
+    var tr11 = document.createElement("tr");
+
+    var table1 = document.createElement("table");
+    table1.className = "table table-dark";
+    table1.setAttribute("style","margin-bottom:5%");
+
+    var thRating = document.createElement("th");
+    // thRating.className = "col";
+    thRating.textContent = "Rating";
+
+    var thHS = document.createElement("th");
+    // thHS.className = "col";
+    thHS.textContent = "HS";
+
+    var thKillRounds = document.createElement("th");
+    // thKillRounds.className = "col";
+    thKillRounds.textContent = "KR";
+
+    var thDeadthsRound = document.createElement("th");
+    // thDeadthsRound.className = "col";
+    thDeadthsRound.textContent = "DR";
+
+    var thRoundsContributed = document.createElement("th");
+    // thRoundsContributed.className = "col";
+    thRoundsContributed.textContent = "RoundsContributed";
+
+    var thMapsPlayed = document.createElement("th");
+    // thMapsPlayed.className = "col";
+    thMapsPlayed.textContent = "MP";
+
+    var thTotalKills = document.createElement("th");
+    // thTotalKills.className = "col";
+    thTotalKills.textContent = "TK";
+
+    var thTotalDeaths = document.createElement("th");
+    // thTotalDeaths.className = "col";
+    thTotalDeaths.textContent = "TD";
+
+    tr11.appendChild(thRating);
+    tr11.appendChild(thHS);
+    tr11.appendChild(thKillRounds);
+    tr11.appendChild(thDeadthsRound);
+    tr11.appendChild(thRoundsContributed);
+    tr11.appendChild(thMapsPlayed);
+    tr11.appendChild(thTotalKills);
+    tr11.appendChild(thTotalDeaths);
+
+
+    tableheads.appendChild(tr11);
+    table1.appendChild(tableheads);
+
+    for(var i = 0; i < PlayerId.Statistics.length;i++){
+
+        var pStati = PlayerId.Statistics[i];
+
+        var sBody = document.createElement("tbody");
+
+        var StasTr2 = document.createElement("tr");
+
+        var tdRating = document.createElement("td");
+        tdRating.textContent = "Rating:" + " " + pStati.Rating;
+
+        StasTr2.appendChild(tdRating);
+
+        var tdHS = document.createElement("td");
+        tdHS.textContent ="Heahshot(%):" +  " "+pStati.HS;
+
+        StasTr2.appendChild(tdHS);
+
+        var thKillRounds = document.createElement("td");
+        thKillRounds.textContent ="Kill Rounds(%):" + " " +pStati.KillsRound;
+
+        StasTr2.appendChild(thKillRounds);
+
+        var tdDeadthsRound = document.createElement("td");
+        tdDeadthsRound.textContent ="DeadthsRound(%):" + " "+  pStati.DeadthsRound+"%";
+
+        StasTr2.appendChild(tdDeadthsRound);
+
+        var tdRoundsContributed  = document.createElement("td");
+        tdRoundsContributed.textContent ="RoundContributed" + " "+ pStati.RoundsContributed;
+
+        StasTr2.appendChild(tdRoundsContributed);
+
+        var tdMapsPlayed = document.createElement("td");
+        tdMapsPlayed.textContent = "MapsPlayed:" + " " +pStati.MapsPlayed;
+
+        StasTr2.appendChild(tdMapsPlayed);
+
+        var tdTotalKills = document.createElement("td");
+        tdTotalKills.textContent ="TotalKills:" + " "+ pStati.TotalKills;
+
+        StasTr2.appendChild(tdTotalKills);
+
+        var tdDeadths = document.createElement("td");
+        tdDeadths.textContent ="TotalDeaths:" + " "+ pStati.TotalDeaths;
+
+        StasTr2.appendChild(tdDeadths);
+
+
+        sBody.appendChild(StasTr2);
+
+        table1.appendChild(sBody);
+
+        div.appendChild(table1)
+
+        PlayersDetails.appendChild(div);
+    }
+
 }
 
-
 // Ecran de todos os jogadores
-function EcranPlayers() {
-
-    return GetPlayers()
-
+function EcranPlayers(type, str) {
+    return GetPlayers(type, str)
         .then(function (Players) {
             ShowPlayers(Players);
         })
@@ -545,7 +758,6 @@ function EcranTeams() {
 
 // Ecran de todos os jogadores que pertecem a uma equipa
 function EcranTeamPlayers(TeamId) {
-
     return GetTeam(TeamId)
         .then(function (Players) {
             ShowTeamPlayers(Players);

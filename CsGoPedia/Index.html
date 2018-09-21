@@ -18,8 +18,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="container">
-                <a class="navbar-brand" href="#"><img id="logo" src="Content/Images/Logo.png" style="text-align: center"
-                    /></a>
+                <a class="navbar-brand" href="#"><img id="logo" src="Content/Images/Me.jpg"/></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul id="UlColor" class="navbar-nav mr-auto">
@@ -46,10 +45,18 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <div class="form-group">
-                            <input id="procura" class="form-control search-field" type="search" name="search" id="search-field" style="margin:15px;">
-                            <label for="search-field">
+                                <select class="custom-select" id="searchFilter">
+                                    <option selected disabled value>Search Filter</option>
+                                    <option value="name">Name</option>
+                                    <option value="country">Country</option>
+                                    <option value="team">Team</option>
+                                    <option value="role">Role</option>
+                                </select>
+                            
+                            <input id="searchInput" class="form-control search-field" type="search" name="search" id="search-field" style="margin:15px;">
+                            <button for="search-field" type="submit" id="SubmitSearch" class="btn btn-default" >
                                 <i class="fa fa-search"></i>
-                            </label>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -59,7 +66,7 @@
 
 
     <div id="MiddlePage">
-        <h4 id="TitleMiddlePage" style="text-align: center; color: white;">Enjoy some clips of me</h4>
+        <h1 id="TitleMiddlePage" style="text-align: center; color: white;">Enjoy some clips of me</h1>
         <div id="DivTitle" class="container">
             <div id="DivVideos" class="row">
             </div>
@@ -67,7 +74,7 @@
             </div>
         </div>
         <div id="ContainerPlayers" class="container" style="margin-top: 1%;margin-bottom: 3%;">
-            <div id="AllPlayers" class="row">
+            <div id="AllPlayers" class="row small-up-2 medium-up-5">
             </div>
         </div>
         <div id="ContainerTeams" class="container">
@@ -79,13 +86,8 @@
             <div id="SinglePlayer" class="row small-up-2 medium-up-5">
             </div>
         </div>
-        <div id="PlayersDetails" class="flex">
-            <div id="PlayerProfile">
-                <div class="standard-box profileTopBox clearfix flex">
-                    <div id="teste" class="bodyshot-container">
-
-                    </div>
-                </div>
+        <div id="ContainerPlayersDetails" class="container">
+            <div id="PlayersDetails" class="row"> 
             </div>
         </div>
     </div>

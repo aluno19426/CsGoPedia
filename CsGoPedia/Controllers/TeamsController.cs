@@ -78,7 +78,7 @@ namespace GamerPedia.Controllers {
                         Name = p.Name,
                         Nickname = p.Nickname,
                         BirthDate = p.BirthDate,
-                        Coutry = p.Coutry,
+                        Country = p.Country,
                         ImgCountry = p.ImgCountry,
                         Team = p.Team,
                         Role = p.Role,

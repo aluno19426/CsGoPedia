@@ -9,7 +9,7 @@
     border-color:white;
     background-attachment: fixed;
 }
-/* 
+/*
 #Nav {
     height: 100vh;
     background-image: url("../../Content/Images/Fundo.png");
@@ -24,8 +24,8 @@
 }
 
 #logo {
-    height: 75px;
-    width: 75px;
+    height: 50px;
+    width: 50px;
 }
 
 #footer {
@@ -33,19 +33,19 @@
     right: 0;
     bottom: 0;
     left: 0;
-     background-color: burlywood; 
+     background-color: burlywood;
     text-align: right;
   }
 
 #MiddlePage {
  /*    height: 100vh; */
-    
+
 /*     background-image: url("../../Content/Images/teste1.jpg"); */
 /*     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
     border-color:white; */
-} 
+}
 
 #navbarSupportedContent li {
 
@@ -75,7 +75,7 @@
     width: 100%;
     object-fit: cover;
 }
-/* 
+/*
 #AllPlayersclass .row{
     margin-right: -130px;
     margin-left: 50px;
@@ -85,7 +85,7 @@
     height: 100px;
     width: 100px;
 }
-  
+
 .Name {
     font-style: italic;
     font-weight: bold;
@@ -102,8 +102,8 @@
 .zoom:hover {
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(1.2); 
-} 
+    transform: scale(1.2);
+}
 
 .col-2.Players.zoom {
     cursor: pointer;
@@ -136,7 +136,7 @@
 @media only screen and (max-width: 320px){
     #DivVideos {
         /* margin-left: 5%; */
-        
+
     }
 }
 
@@ -149,7 +149,7 @@
     #DivVideos > div {
         margin-bottom:5px;
     }
-} 
+}
 
 @media only screen and (max-width: 768px) {
     #DivMedia > .MePhoto{
@@ -224,17 +224,68 @@
         margin-bottom: 30%;
     }
 }
- 
+
 @media only screen and (max-width: 330px) {
     #SinglePlayer {
         margin-bottom: 45%;
     }
 }
+.Achive {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+@media
+only screen and (max-width: 1024px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
 
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+        /* font-size: 14px; */
+	}
 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
 
+    .table tr {
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items:center;
+      }
 
-/* 
-margin-bottom: 35%; */
-/********/
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+}
+
+.AchievementsTitle {
+    background-color:#32383e;text-align:center;color:white;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.StatiTitle {
+    background-color:#32383e;text-align:center;color:white;
+    font-family: "Lucida Console", Monaco, monospace;
+}
