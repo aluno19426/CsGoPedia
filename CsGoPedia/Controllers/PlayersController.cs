@@ -68,69 +68,12 @@ namespace GamerPedia.Controllers {
 
             return Ok(player);
         }
-
-        // para o filtro da search bar
-        //        //get api/players/id with statistics and achivements
-        //        [HttpGet, Route("api/players")]
-        //        public IHttpActionResult GetPlayers(string Name = "") {
-
-        //            object Players;
-
-        //    	    if(Name == ""){
-        //                Players = db.Players.Select(
-        //                    p => new GetAllPlayers {
-        //                        Id = p.Id,
-        //                        Name = p.Name,
-        //                        BirthDate = p.BirthDate,
-        //                        Country = p.Country,
-        //                        Hltv = p.Hltv,
-        //                        ImgCountry = p.ImgCountry,
-        //                        Instagram = p.Instagram,
-        //                        Nickname = p.Nickname,
-        //                        Photo = p.Photo,
-        //                        Role = p.Role,
-        //                        Team = p.Team,
-        //                        TotalWinnings = p.TotalWinnings,
-        //                        VideoHighlight = p.VideoHighlight
-        //                    })
-        //                    .OrderBy(p=>p.Id)
-        //                    .ToList();
-        //                }
-        //                else {
-        //                Players = db.Players
-        //                    .Where(p =>p.Name.ToLower().Contains(Name.ToLower()))
-        //                    .Select(
-        //                    p => new GetAllPlayers {
-        //                        Id = p.Id,
-        //                        Name = p.Name,
-        //                        BirthDate = p.BirthDate,
-        //                        Country = p.Country,
-        //                        Hltv = p.Hltv,
-        //                        ImgCountry = p.ImgCountry,
-        //                        Instagram = p.Instagram,
-        //                        Nickname = p.Nickname,
-        //                        Photo = p.Photo,
-        //                        Role = p.Role,
-        //                        Team = p.Team,
-        //                        TotalWinnings = p.TotalWinnings,
-        //                        VideoHighlight = p.VideoHighlight
-        //                    })
-        //                    .OrderBy(p=>p.Id)
-        //                    .ToList();
-        //                }
-
-        //            return Ok(Players);
-        //        }
-        //    }
-        //}
-
+        
         //get api/players/id with statistics and achivements
         [HttpGet, Route("api/players")]
         public IHttpActionResult GetPlayers(string type = "", string str = "") {
             
             var q = db.Players;
-
-
 
             var players = q.Select(
                 p => new GetAllPlayers {
@@ -151,21 +94,24 @@ namespace GamerPedia.Controllers {
             .OrderBy(p => p.Id)
             .ToList();
 
-            if(type == "country") {
+
+            if(type == "country" && str!=null) {
                players = players.Where(p => p.Country.ToLower().Contains(str.ToLower())).ToList();
             }
 
-            if(type == "team") {
+            if(type == "team" && str!=null) {
                 players = players.Where(p => p.Team.ToLower().Contains(str.ToLower())).ToList();
             }
 
-            if(type == "name") {
+            if(type == "name" && str != null) {
                 players = players.Where(p => p.Name.ToLower().Contains(str.ToLower())).ToList();
             }
 
-            if(type == "role") {
+            if(type == "role" && str != null) {
                 players = players.Where(p => p.Role.ToLower().Contains(str.ToLower())).ToList();
             }
+
+
 
             if(players.Count() == 0) {
                 return NotFound();

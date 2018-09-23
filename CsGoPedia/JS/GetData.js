@@ -1,24 +1,4 @@
-﻿//function getPlayers(Name) {
-//    let url;
-//    if (Name === null) {
-//        url = "/api/players/";
-//    }
-//    else {
-//        url = "/api/champions/?Name=" + Name;
-//    }
-//    return fetch(url, { headers: { Accept: "application/json" } })
-//        .then(function(resposta) {
-//            if (resposta.status === 200) {
-//                return resposta.json();
-//            } else {
-//                return Promise.reject(new Error("Erro ao obter champs"));
-//            }
-//            });
-    
-
-//}
-
-
+﻿// all teams
 function GetTeams(){
     var Teams = "api/teams";
 
@@ -34,6 +14,26 @@ function GetTeams(){
         }
     });
 }
+
+
+function GetSingleTeam(TeamSingleId){
+    var T = "api/teams/"+TeamSingleId;
+
+    return fetch(T, { headers: { Accept: 'application/json' } })
+    .then(function (resposta) {
+        //debugger;
+        if (resposta.status === 200) {
+
+            return resposta.json();
+
+        } else {
+            return Promise.reject(new Error("Error to get Teams"));
+        }
+    });
+}
+
+
+
 
 function GetTeam(TeamId){
     var Team= "api/teams/"+TeamId+"/players";

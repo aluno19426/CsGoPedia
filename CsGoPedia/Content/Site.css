@@ -188,6 +188,13 @@
     }
 }
 
+
+@media only screen and (max-width: 576px) {
+    #AllPlayers {
+        margin-bottom: 15%;
+    }
+}
+
 @media only screen and (max-width: 960px) {
     .card-body.row  h6{
         font-size: 12px;
@@ -288,4 +295,20 @@ only screen and (max-width: 1024px),
 .StatiTitle {
     background-color:#32383e;text-align:center;color:white;
     font-family: "Lucida Console", Monaco, monospace;
+}
+
+@media only screen and (max-width: 768px) {
+    .col-md-6.Social > a > img {
+        margin-bottom: 2%;
+    }
+}
+
+.col-md-6.Social {
+    color:white;
+} 
+
+@media only screen and (max-width: 768px) {
+    .DivAChiStats {
+        margin-bottom: 10%;
+    }
 }

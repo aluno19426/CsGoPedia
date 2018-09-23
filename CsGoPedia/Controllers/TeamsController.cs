@@ -22,7 +22,8 @@ namespace GamerPedia.Controllers {
                     Name = t.Name,
                     Logo = t.Logo,
                     WorldRanking = t.WorldRanking,
-                    RegionPhoto = t.RegionPhoto
+                    RegionPhoto = t.RegionPhoto,
+                    History = t.History
                 })
                 .OrderBy(t => t.Id)
                 .ToList();

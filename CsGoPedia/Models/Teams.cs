@@ -35,6 +35,7 @@ namespace GamerPedia.Models {
 
         public string WorldRanking { get; set; }
 
+        public string History { get; set; }
 
         //Colletion of list of objets from construtor from class teams
         public virtual ICollection<Players> ListPlayers { get; set; }

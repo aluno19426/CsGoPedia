@@ -21,16 +21,16 @@
             var ListTeam = new List<Teams> {
 
                 //team MouseSports
-                new Teams {Id = 1, Name = "Mousesports", WorldRanking="4º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/300/400.jpeg?v=4", Coach="Sergey Bezhanov", TotalEarnings="1,829,391$", Logo="https://static.hltv.org/images/team/logo/4494"},
+                new Teams {Id = 1, Name = "Mousesports", WorldRanking="4º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/300/400.jpeg?v=4", Coach="Sergey Bezhanov", TotalEarnings="1,829,391$", Logo="https://static.hltv.org/images/team/logo/4494", History="mousesports (often abbreviated to mouz) is a professional gaming organization based in Berlin, Germany."},
 
                 //team Faze Clan
-                new Teams {Id = 2, Name = "FaZe Clan",WorldRanking="5º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/2/400.jpeg?v=1", Coach="Robert Dahlström", TotalEarnings="2,507,347$", Logo="https://static.hltv.org/images/team/logo/6667"},
+                new Teams {Id = 2, Name = "FaZe Clan",WorldRanking="5º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/2/400.jpeg?v=1", Coach="Robert Dahlström", TotalEarnings="2,507,347$", Logo="https://static.hltv.org/images/team/logo/6667", History="FaZe Clan is an American professional esports organization, mostly known for its presence in the Call of Duty scene."},
 
                 //team Renegades
-                new Teams {Id = 3, Name = "Renegades", WorldRanking="19º", Region="North America", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/US.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/9052/400.jpeg?v=1", Coach="Steve Rattacasa", TotalEarnings="547,198$", Logo="https://static.hltv.org/images/team/logo/6211"},
+                new Teams {Id = 3, Name = "Renegades", WorldRanking="19º", Region="North America", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/US.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/9052/400.jpeg?v=1", Coach="Steve Rattacasa", TotalEarnings="547,198$", Logo="https://static.hltv.org/images/team/logo/6211",History="Renegades is a professional gaming organization, founded in March 2015 under the name Misfits."},
 
                 //team North
-                new Teams {Id = 4, Name = "North", WorldRanking="6º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/24/400.jpeg?v=1", Coach="Alexander Holdt", TotalEarnings="670,250$", Logo="https://static.hltv.org/images/team/logo/7533"},
+                new Teams {Id = 4, Name = "North", WorldRanking="6º",Region="Europe", RegionPhoto="https://static.hltv.org/images/bigflags/30x20/EU.gif", CoachPhoto="https://static.hltv.org/images/playerprofile/thumb/24/400.jpeg?v=1", Coach="Alexander Holdt", TotalEarnings="670,250$", Logo="https://static.hltv.org/images/team/logo/7533",History="North is a Danish esports organization and the esports affiliate of F.C. Copenhagen and Nordisk Film."},
             };
 
             ListTeam.ForEach(t => context.Teams.AddOrUpdate(tt => tt.Name, t));
@@ -60,7 +60,7 @@
 
                 new Players {Id=9,Name="Ladislav Kovács",  Nickname="GuardiaN ",BirthDate="July 9, 1991 (age 27)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/SK.gif" ,Country="Slovakia", Hltv="https://www.hltv.org/player/2757/GuardiaN", Instagram="https://www.instagram.com/ladislav.xkovacs/", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/2757.png",Role="AWPer", Team="Faze Clan", TotalWinnings="$644,396", VideoHighlight="https://www.youtube.com/embed/rbINtd_NjyE?rel=0", TeamFK=2},
 
-                new Players {Id=10,Name="Olof Kajbjer Gustafsson",  Nickname="olofmeister",BirthDate="January 31, 1992 (age 26)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/SE.gif" ,Country="Sweden", Hltv="https://www.hltv.org/player/2553/Snax", Instagram="https://www.instagram.com/olofkajbjer/", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/885.png",Role="Rifler/AWPer", Team="Faze Clan", TotalWinnings="$675,598", VideoHighlight="https://www.youtube.com/embed/6_wLxs2wAZ8?rel=0", TeamFK=2},
+                new Players {Id=10,Name="Olof Kajbjer G.",  Nickname="olofmeister",BirthDate="January 31, 1992 (age 26)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/SE.gif" ,Country="Sweden", Hltv="https://www.hltv.org/player/2553/Snax", Instagram="https://www.instagram.com/olofkajbjer/", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/885.png",Role="Rifler/AWPer", Team="Faze Clan", TotalWinnings="$675,598", VideoHighlight="https://www.youtube.com/embed/6_wLxs2wAZ8?rel=0", TeamFK=2},
 
                 //List of players of team Renegades
 
@@ -76,7 +76,7 @@
 
                // List of players of team North
 
-               new Players {Id=16,Name="Mathias Sommer Lauridsen",  Nickname="MSL",BirthDate="December 6, 1994 (age 23)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/DK.gif" ,Country="Denmark", Hltv="https://www.hltv.org/player/7156/MSL", Instagram="https://www.instagram.com/mathiassommerlauridsen/", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/7156.png",Role="In-game leader/Rifler (lurker)", Team="North", TotalWinnings="$296,096", VideoHighlight="https://www.youtube.com/embed/CbXBJ302N5Q?rel=0", TeamFK=4},
+               new Players {Id=16,Name="Mathias Sommer L.",  Nickname="MSL",BirthDate="December 6, 1994 (age 23)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/DK.gif" ,Country="Denmark", Hltv="https://www.hltv.org/player/7156/MSL", Instagram="https://www.instagram.com/mathiassommerlauridsen/", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/7156.png",Role="In-game leader/Rifler (lurker)", Team="North", TotalWinnings="$296,096", VideoHighlight="https://www.youtube.com/embed/CbXBJ302N5Q?rel=0", TeamFK=4},
 
                new Players {Id=17,Name="Philip Aistrup Larsen",  Nickname="aizy ",BirthDate="June 4, 1996 (age 22)", ImgCountry="https://static.hltv.org/images/bigflags/30x20/DK.gif" ,Country="Denmark", Hltv="https://www.hltv.org/player/8095/aizy", Instagram="https://www.instagram.com/aizydj/?hl=pt", Photo="https://static.hltv.org//images/playerprofile/bodyshot/compressed/8095.png",Role="Rifler", Team="North", TotalWinnings="$234,228", VideoHighlight="https://www.youtube.com/embed/qATvTfPTmLo?rel=0", TeamFK=4},
 

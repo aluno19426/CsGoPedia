@@ -17,5 +17,6 @@ namespace GamerPedia.DTO.Teams {
 
         public string RegionPhoto { get; set; }
 
+        public string History { get; set; }
     }
 }

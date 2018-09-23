@@ -79,11 +79,13 @@ function MainPage() {
         DivMedia.classList.add("hidden");
         SinglePlayer.classList.add("hidden");
         AllPlayers.classList.add("hidden");
-
+        PlayersDetails.classList.add("hidden");
+        
         // RedirectTeams.classList.add("hidden");
-
+        
         AllTeams.innerHTML = "";
         SinglePlayer.innerHTML = "";
+        PlayersDetails.innerHTML = "";
 
         EcranTeams();
     });
@@ -95,10 +97,12 @@ function MainPage() {
         AllPlayers.classList.add("hidden");
         AllTeams.classList.add("hidden");
         SinglePlayer.classList.add("hidden");
-
+        PlayersDetails.classList.add("hidden");
+        
         // RedirectTeams.classList.add("hidden");
         AllPlayers.innerHTML = "";
         SinglePlayer.innerHTML = "";
+        PlayersDetails.innerHTML = "";
         EcranPlayers();
     });
 
@@ -121,6 +125,27 @@ function MainPage() {
         EcranPlayers(type, str);
     });
 
+    // RedirectAbout.addEventListener("click",function(e){
+
+
+    //     var DivAbout = document.createElement("div");
+
+    //     var TitleAbout = document.createElement("h6");
+    //     TitleAbout.textContent = "About CSGO - GamerPedia";
+
+    //     var About = document.createElement("h6");
+    //     About.textContent = "This plataform will be used for users who like CSGO and see same stuff about the pro-players."
+        
+    //     DivAbout.appendChild(TitleAbout);
+    //     DivAbout.appendChild(About);
+
+
+    //     var DivMiddle = document.getElementById("MiddlePage");
+    //     // AboutPage();
+
+    //     DivMiddle.appendChild(DivAbout);
+    // });
+
     var Clean = document.getElementById("Clean").addEventListener("click",function(e){
 
         /*esconde os divs*/
@@ -134,6 +159,9 @@ function MainPage() {
         SinglePlayer.classList.add("hidden");
         SinglePlayer.innerHTML = ""
         AllPlayers.classList.add("hidden");
+
+        PlayersDetails.classList.add("hidden");
+        PlayersDetails.innerHTML = "";
     });
 }
 
@@ -228,13 +256,17 @@ function ShowPlayers(Players) {
 
         Button.addEventListener("click", function (e) {
             var PlayerId = e.target.getAttribute("id", Players.Id);
-            ContainerPlayers.classList.add("hidden");
+            AllPlayers.classList.add("hidden");
+
+            PlayersDetails.innerHTML = "";
+
             EcranPlayer(PlayerId);
         });
         MainCard.appendChild(DivCard);
         AllPlayers.appendChild(MainCard);
 
     }
+    
 }
 
 function ShowTeamPlayers(Players) {
@@ -331,8 +363,11 @@ function ShowTeamPlayers(Players) {
          */
         Button.addEventListener("click", function (e) {
             var PlayerId = e.target.getAttribute("id", Players.Id);
-            ContainerPlayers.classList.add("hidden");
+            // ContainerPlayers.classList.add("hidden");
             SinglePlayer.classList.add("hidden");
+
+            PlayersDetails.innerHTML = "";
+            
             EcranPlayer(PlayerId);
         });
 
@@ -408,6 +443,9 @@ function ShowTeams(Teams) {
         Button.setAttribute("id", Team.Id);
         DivFooter.appendChild(Button);
 
+        var History = document.createElement("p");
+        History.textContent = "Synopsis:" + " "+Team.History;
+        History.setAttribute("style","color:white;background-color:#343a40!important;");
 
         Button.addEventListener("click", function (e) {
             var TeamId = e.target.getAttribute("id", Team.Id);
@@ -415,6 +453,9 @@ function ShowTeams(Teams) {
 
             AllPlayers.innerHTML = "";
             SinglePlayer.innerHTML = "";
+
+            
+          
             EcranTeamPlayers(TeamId);
         });
 
@@ -424,6 +465,8 @@ function ShowTeams(Teams) {
         DivCard.appendChild(DivCardBody);
         DivCard.appendChild(DivFooter);
         MainCard.appendChild(DivCard);
+        MainCard.appendChild(History)
+        
 
         AllTeams.appendChild(MainCard);
 
@@ -433,13 +476,15 @@ function ShowTeams(Teams) {
 function ShowPlayer(PlayerId) {
 
     var PlayersDetails = document.getElementById("PlayersDetails");
+    PlayersDetails.classList.remove("hidden");
+
     PlayersDetails.style.marginTop = "1%";
 
     var DivCol1 = document.createElement("div");
     DivCol1.className = "col-md-6";
 
     var DivCol2 = document.createElement("div");
-    DivCol2.className = "col-md-6";
+    DivCol2.className = "col-md-6 Social";
     DivCol2.setAttribute("style","background-color:#32383e");
 
     var DivCol3 = document.createElement("div");
@@ -452,8 +497,8 @@ function ShowPlayer(PlayerId) {
     PlayerPhoto.setAttribute("style","height:100%; width:100%");
     DivPhoto.appendChild(PlayerPhoto);
 
-    var DivTotalWinnings = document.createElement("div");
-    DivTotalWinnings.setAttribute("style","background-color:black; text-align:center;");
+    // var DivTotalWinnings = document.createElement("div");
+    // DivTotalWinnings.setAttribute("style","background-color:black; text-align:center;");
 
     var TotalWinnings = document.createElement("h6");
     TotalWinnings.textContent = "Total:" + " " + PlayerId.TotalWinnings;
@@ -466,6 +511,12 @@ function ShowPlayer(PlayerId) {
     var Name = document.createElement("h6");
     Name.textContent = "Name:" + " " + PlayerId.Name;
     Name.setAttribute("style","background-color:#343a40 !important;");
+
+    var Team = document.createElement("h6");
+    Team.textContent ="Team:" + " " + PlayerId.Team;
+    Team.setAttribute("style","background-color:#343a40 !important;");
+
+    console.log(Team);
 
     var divCountryStuff = document.createElement("div");
 
@@ -481,8 +532,6 @@ function ShowPlayer(PlayerId) {
     var VideoHighlight = document.createElement("iframe");
     VideoHighlight.src = PlayerId.VideoHighlight;~
     VideoHighlight.setAttribute("style","height:50%; width:100%;")
-
-    console.log(VideoHighlight);
 
     divCountryStuff.appendChild(ImgCountry);
     divCountryStuff.appendChild(Country);
@@ -506,21 +555,35 @@ function ShowPlayer(PlayerId) {
 
     InstaPlayer.appendChild(InstagramIcon);
 
+    var HltvPlayer = document.createElement("a");
+    HltvPlayer.setAttribute("style","background-color:#343a40 !important;")
+    HltvPlayer.href = PlayerId.Hltv;
+    HltvPlayer.setAttribute("target","_blank");
 
-    DivTotalWinnings.appendChild(TotalWinnings);
+    var InstagramHltv = document.createElement("img");
+    InstagramHltv.src = "./Content/Images/HltvIcon.png";
+    InstagramHltv.setAttribute("style","height:25px;width:25px;float:right;");
+
+    HltvPlayer.appendChild(InstagramHltv);
+
+    console.log(HltvPlayer);
+
+    // DivTotalWinnings.appendChild(TotalWinnings);
 
     // DivPhoto.appendChild(DivTotalWinnings);
 
     DivCol1.appendChild(DivPhoto);
-    DivCol1.appendChild(DivTotalWinnings);
+    // DivCol1.appendChild(DivTotalWinnings);
 
     DivCol2.appendChild(Nickname);
     DivCol2.appendChild(Name);
+    DivCol2.appendChild(Team);
     DivCol2.appendChild(divCountryStuff);
     DivCol2.appendChild(Role);
     DivCol2.appendChild(BirthDate);
     DivCol2.appendChild(VideoHighlight);
     DivCol2.appendChild(InstaPlayer);
+    DivCol2.appendChild(HltvPlayer);
 
 
     // DivCol3.appendChild(InstaPlayer);
