@@ -73,6 +73,7 @@ function MainPage() {
     var TitleMiddlePage = document.getElementById("TitleMiddlePage");
     var SubmitSearch = document.getElementById("SubmitSearch");
 
+    //eventlistener para redirecionar para a página das teams
     RedirectTeams.addEventListener("click", function (e) {
         DivVideos.classList.add("hidden");
         TitleMiddlePage.classList.add("hidden");
@@ -90,6 +91,7 @@ function MainPage() {
         EcranTeams();
     });
 
+     //eventlistener para redirecionar para a página de todos os jogadores
     RedirectPlayers.addEventListener("click", function (e) {
         DivVideos.classList.add("hidden");
         TitleMiddlePage.classList.add("hidden");
@@ -106,6 +108,8 @@ function MainPage() {
         EcranPlayers();
     });
 
+
+     //eventlistener onde lê qual é os dois valores dos inputs
     SubmitSearch.addEventListener("click", function(e){
         e.preventDefault();
         //Ecran dependendo do input da procura
@@ -121,34 +125,22 @@ function MainPage() {
         // RedirectTeams.classList.add("hidden");
         AllPlayers.innerHTML = "";
         SinglePlayer.innerHTML = "";
-        // debugger;
-        EcranPlayers(type, str);
+
+        if (str.length === 0) {
+            EcranPlayers();
+        }
+        else {
+            var p = EcranPlayers(type, str);
+            ShowPlayers(p);
+        }
+
+        //EcranPlayers(type, str);
     });
 
-    // RedirectAbout.addEventListener("click",function(e){
-
-
-    //     var DivAbout = document.createElement("div");
-
-    //     var TitleAbout = document.createElement("h6");
-    //     TitleAbout.textContent = "About CSGO - GamerPedia";
-
-    //     var About = document.createElement("h6");
-    //     About.textContent = "This plataform will be used for users who like CSGO and see same stuff about the pro-players."
-        
-    //     DivAbout.appendChild(TitleAbout);
-    //     DivAbout.appendChild(About);
-
-
-    //     var DivMiddle = document.getElementById("MiddlePage");
-    //     // AboutPage();
-
-    //     DivMiddle.appendChild(DivAbout);
-    // });
-
+    //eventlistener para voltar para a página inicial.
     var Clean = document.getElementById("Clean").addEventListener("click",function(e){
 
-        /*esconde os divs*/
+        /*esconde os divs e apaga*/
         DivVideos.classList.remove("hidden");
         DivMedia.classList.remove("hidden");
         TitleMiddlePage.classList.remove("hidden");
@@ -169,19 +161,10 @@ function MainPage() {
 //Mostra todos os jogadores
 function ShowPlayers(Players) {
 
-
-    /*     para o filtro do jogador
-    if (Players == null || Players.length === 0) {
-        const h1 = document.createElement("h1");
-        h1.textContent = "No champions were found.";
-
-        mainDiv.appendChild(h1);
-    } */
-
-
     var AllPlayers = document.getElementById("AllPlayers");
     AllPlayers.classList.remove("hidden");
 
+    //for para percorrer todos os jogadores
     for (var i = 0; i < Players.length; i++) {
 
         var Player = Players[i];
@@ -198,12 +181,14 @@ function ShowPlayers(Players) {
         var DivCardHeader = document.createElement("div");
         DivCardHeader.className = "card-header bg-dark text-light";
 
+        //Nome do jogador
         var Name = document.createElement("h5");
         Name.textContent = Player.Name;
         Name.className = "row";
         DivCardHeader.appendChild(Name);
         //console.log(Title);
 
+        //Imagem do jogador
         var img = document.createElement("img");
         img.className = "card-img-top";
         img.src = Player.Photo;
@@ -219,7 +204,7 @@ function ShowPlayers(Players) {
         Texto.className = "card-text";
         //Texto.textContent = "Country" + Player.Country;
 
-
+        //Pais do jogador
         var CountryImg = document.createElement("img");
         CountryImg.src = Player.ImgCountry;
         CountryImg.setAttribute("style", "text-align:left");
@@ -229,31 +214,35 @@ function ShowPlayers(Players) {
 
         DivFooter.appendChild(CountryImg);
 
+        //Nickname do jogador
         var Nickname = document.createElement("h6");
         Nickname.textContent = "Nickname:" + " " + Player.Nickname;
 
+        //Equipa do jogador
         var Team = document.createElement("h4");
         Team.textContent = "Team:" + " " + Player.Team;
 
         CardBody.appendChild(Nickname);
         CardBody.appendChild(Team);
 
+        //Butao para redicionar depois para os detalhes do jogador
         var Button = document.createElement("button");
         Button.className = "btn btn-dark btn-sm";
         Button.textContent = "click for more";
         Button.setAttribute("style", "margin-left: 2%;float:right")
 
+        //Dá um Id a cada butao de cada jogador
         Button.setAttribute("id", Player.Id);
         //console.log(Player.Id);
         DivFooter.appendChild(Button);
 
+        //Append de todos os elementos da card
         DivCard.appendChild(DivCardHeader);
         DivCard.appendChild(CardBody);
         DivCard.appendChild(DivFooter);
 
-        var ButtonOrder = document.createElement("button");
-        ButtonOrder.className = "btn btn-primary";
 
+         //EventListene redicionar para os detalhes do jogador
         Button.addEventListener("click", function (e) {
             var PlayerId = e.target.getAttribute("id", Players.Id);
             AllPlayers.classList.add("hidden");
@@ -269,8 +258,8 @@ function ShowPlayers(Players) {
     
 }
 
+// Mostra todos os jogadores da respestiva equipa
 function ShowTeamPlayers(Players) {
-
 
     var AllPlayers= document.getElementById("AllPlayers");
     AllPlayers.classList.add("hidden");
@@ -350,17 +339,6 @@ function ShowTeamPlayers(Players) {
         var ButtonOrder = document.createElement("button");
         ButtonOrder.className = "btn btn-primary";
 
-
-        /*         Button.addEventListener("click", function (e) {
-                    GetPlayer(e.target.id).then
-                    (function (res) {
-                        ShowPlayer(res);
-                    }).catch(function (erro) {
-                        console.error(erro);
-                        alert("Lamentamos, mas ocorreu um erro...");
-                    });
-                });
-         */
         Button.addEventListener("click", function (e) {
             var PlayerId = e.target.getAttribute("id", Players.Id);
             // ContainerPlayers.classList.add("hidden");
@@ -382,10 +360,6 @@ function ShowTeamPlayers(Players) {
 //Funcao que vai buscar todas as equipas e dá display
 function ShowTeams(Teams) {
 
-    /*  EcranPlayers(); */
-
-    // var AllPlayers = document.getElementById("AllPlayers");
-    // AllPlayers.classList.add("hidden");
 
     var AllTeams = document.getElementById("AllTeams");
     AllTeams.classList.remove("hidden");
@@ -396,8 +370,6 @@ function ShowTeams(Teams) {
 
         var MainCard = document.createElement("div");
         MainCard.className = "col-md-3 col-sm-6 filtr-item col-md-offset-1";
-        //MainCard.className=" col-md-3 col-md-offset-1";
-        //MainCard.style.marginBottom="1%";
         MainCard.setAttribute("style", "margin-bottom:3%;");
 
         var DivCard = document.createElement("div");
@@ -433,9 +405,6 @@ function ShowTeams(Teams) {
         var RegionPhoto = document.createElement("img");
         RegionPhoto.src = Team.RegionPhoto;
 
-        //var DivFooter = document.createElement("div");
-        //DivFooter.className = "card-footer";
-
         var Button = document.createElement("button");
         Button.className = "btn btn-dark btn-sm";
         Button.textContent = "click for more";
@@ -454,8 +423,6 @@ function ShowTeams(Teams) {
             AllPlayers.innerHTML = "";
             SinglePlayer.innerHTML = "";
 
-            
-          
             EcranTeamPlayers(TeamId);
         });
 
@@ -473,6 +440,7 @@ function ShowTeams(Teams) {
     }
 }
 
+//Mostra os detalhes do Jogador escolhido
 function ShowPlayer(PlayerId) {
 
     var PlayersDetails = document.getElementById("PlayersDetails");
@@ -497,8 +465,6 @@ function ShowPlayer(PlayerId) {
     PlayerPhoto.setAttribute("style","height:100%; width:100%");
     DivPhoto.appendChild(PlayerPhoto);
 
-    // var DivTotalWinnings = document.createElement("div");
-    // DivTotalWinnings.setAttribute("style","background-color:black; text-align:center;");
 
     var TotalWinnings = document.createElement("h6");
     TotalWinnings.textContent = "Total:" + " " + PlayerId.TotalWinnings;
@@ -566,14 +532,7 @@ function ShowPlayer(PlayerId) {
 
     HltvPlayer.appendChild(InstagramHltv);
 
-    console.log(HltvPlayer);
-
-    // DivTotalWinnings.appendChild(TotalWinnings);
-
-    // DivPhoto.appendChild(DivTotalWinnings);
-
     DivCol1.appendChild(DivPhoto);
-    // DivCol1.appendChild(DivTotalWinnings);
 
     DivCol2.appendChild(Nickname);
     DivCol2.appendChild(Name);
@@ -585,16 +544,8 @@ function ShowPlayer(PlayerId) {
     DivCol2.appendChild(InstaPlayer);
     DivCol2.appendChild(HltvPlayer);
 
-
-    // DivCol3.appendChild(InstaPlayer);
-
-    // var DivContainerAchivements = document.createElement("div");
-    // DivContainerAchivements.className = "container";
-
     PlayersDetails.appendChild(DivCol1);
     PlayersDetails.appendChild(DivCol2);
-    // PlayersDetails.appendChild(DivCol3);
-
 
     var div = document.createElement("div");
     div.className= "DivAChiStats row";
@@ -603,7 +554,6 @@ function ShowPlayer(PlayerId) {
     var AchievementsTitle = document.createElement("h3");
     AchievementsTitle.className = "AchievementsTitle";
     AchievementsTitle.textContent = "Player Achivements";
-    // AchievementsTitle.setAttribute("style","background-color:#32383e;text-align:center;color:white;");
     div.appendChild(AchievementsTitle);
 
     var tablehead = document.createElement("thead");
@@ -615,11 +565,9 @@ function ShowPlayer(PlayerId) {
     table.setAttribute("style","border-collapse: collapse; ")
 
     var thName = document.createElement("th");
-    // thName.className = "col";
     thName.textContent = "Tournament";
 
     var thPlacement = document.createElement("th");
-    // thPlacement.className = "col";
     thPlacement.textContent = "Placement";
 
     tr1.appendChild(thName);
@@ -650,7 +598,6 @@ function ShowPlayer(PlayerId) {
         tBody.appendChild(tdName);
         tBody.appendChild(tdPlacement);
 
-        // table.appendChild(tablehead);
         table.appendChild(tBody);
 
         div.appendChild(table);
@@ -658,18 +605,10 @@ function ShowPlayer(PlayerId) {
         PlayersDetails.appendChild(div);
     }
 
-    // PlayersDetails.appendChild(DivCol1);
-    // PlayersDetails.appendChild(DivCol2);
-    // PlayersDetails.appendChild(DivCol3);
-
-
-    // var divS = document.createElement("div");
-    // divS.setAttribute("style","margin-top: 2%;margin-left: 1.4%;");
 
     var StatiTitle = document.createElement("h3");
     StatiTitle.textContent = "Player Statistics";
     StatiTitle.className = "StatiTitle";
-    // StatiTitle.setAttribute("style","background-color:#32383e;text-align:center;color:white;");
     div.appendChild(StatiTitle);
 
     var tableheads = document.createElement("thead");
@@ -681,35 +620,27 @@ function ShowPlayer(PlayerId) {
     table1.setAttribute("style","margin-bottom:5%");
 
     var thRating = document.createElement("th");
-    // thRating.className = "col";
     thRating.textContent = "Rating";
 
     var thHS = document.createElement("th");
-    // thHS.className = "col";
     thHS.textContent = "HS";
 
     var thKillRounds = document.createElement("th");
-    // thKillRounds.className = "col";
     thKillRounds.textContent = "KR";
 
     var thDeadthsRound = document.createElement("th");
-    // thDeadthsRound.className = "col";
     thDeadthsRound.textContent = "DR";
 
     var thRoundsContributed = document.createElement("th");
-    // thRoundsContributed.className = "col";
     thRoundsContributed.textContent = "RoundsContributed";
 
     var thMapsPlayed = document.createElement("th");
-    // thMapsPlayed.className = "col";
     thMapsPlayed.textContent = "MP";
 
     var thTotalKills = document.createElement("th");
-    // thTotalKills.className = "col";
     thTotalKills.textContent = "TK";
 
     var thTotalDeaths = document.createElement("th");
-    // thTotalDeaths.className = "col";
     thTotalDeaths.textContent = "TD";
 
     tr11.appendChild(thRating);
@@ -721,7 +652,7 @@ function ShowPlayer(PlayerId) {
     tr11.appendChild(thTotalKills);
     tr11.appendChild(thTotalDeaths);
 
-
+    
     tableheads.appendChild(tr11);
     table1.appendChild(tableheads);
 

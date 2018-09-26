@@ -69,7 +69,7 @@ namespace GamerPedia.Controllers {
             return Ok(player);
         }
         
-        //get api/players/id with statistics and achivements
+        //get api/players/
         [HttpGet, Route("api/players")]
         public IHttpActionResult GetPlayers(string type = "", string str = "") {
             
